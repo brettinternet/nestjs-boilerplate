@@ -1,0 +1,13 @@
+entity: User
+processor: user-processor
+items:
+  user1:
+    firstName: Larry
+    lastName: David
+    email: test@example.com
+    password: foo
+  user{2..10}:
+    firstName: '{{name.firstName}}'
+    lastName: '{{name.lastName}}'
+    email: '{{internet.email}}'
+    password: foo

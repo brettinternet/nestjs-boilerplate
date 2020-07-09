@@ -1,0 +1,24 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "setup": "lerna exec -- npm ci",
+    "clean": "lerna run clean",
+    "clean:all": "npm run clean && lerna clean",
+    "start": "run-p start:database start:packages",
+    "start:database": "npm run compose-start postgres",
+    "start:packages": "lerna run start",
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "compose-start": "ts-node bin/compose-start",
+    "compose-build": "ts-node bin/build"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.20",
+    "dotenv": "^8.2.0",
+    "lerna": "^3.22.1",
+    "npm-run-all": "^4.1.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
+  }
+}

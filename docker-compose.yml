@@ -1,0 +1,44 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./packages/web
+      dockerfile: ./docker/${DOCKER_FILE_ENV:-dev}.Dockerfile
+      args:
+        - NODE_ENV=${NODE_ENV:-development}
+    image: ${APP_NAME:-app}-web-${DOCKER_FILE_ENV:-dev}:latest
+    depends_on:
+      - server
+    environment:
+      REACT_APP_SERVER_HOST: server
+    ports:
+      - '${PORT:-3001}:${PORT:-3001}'
+    volumes:
+      - .:/home/app/
+      - /home/app/node_modules
+
+  server:
+    build:
+      context: ./packages/server
+      dockerfile: ./docker/${DOCKER_FILE_ENV:-dev}.Dockerfile
+      args:
+        - NODE_ENV=${NODE_ENV:-development}
+    image: ${APP_NAME:-app}-server-${DOCKER_FILE_ENV:-dev}:latest
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_HOST: postgres
+    ports:
+      - '${PORT:-3000}:${PORT:-3000}'
+    volumes:
+      - .:/home/app/
+      - /home/app/node_modules
+
+  postgres:
+    image: postgres:11.2-alpine
+    ports:
+      - '${DATABASE_PORT:-5432}:5432'
+    environment:
+      POSTGRES_DB: '${DATABASE_NAME:-app}'
+      POSTGRES_USER: '${DATABASE_USERNAME}'
+      POSTGRES_PASSWORD: '${DATABASE_PASSWORD}'

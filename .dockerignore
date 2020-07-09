@@ -1,0 +1,8 @@
+.git
+node_modules
+dist
+client-dist
+.cache
+.parcel-cache
+docker
+test/*.http
