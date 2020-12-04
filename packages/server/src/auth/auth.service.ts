@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { hash, compare } from 'bcrypt'
 
-import { UsersService } from 'server/users/users.service'
-import { User } from 'server/users/user.entity'
+import { UsersService } from 'src/users/users.service'
+import { User } from 'src/users/user.entity'
 
 export type Payload = {
   id: number

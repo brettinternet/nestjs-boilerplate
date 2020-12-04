@@ -1,7 +1,7 @@
 import { IProcessor } from 'typeorm-fixtures-cli'
 import { hash } from 'bcrypt'
 
-import { User } from '../src/users/user.entity'
+import { User } from 'src/users/user.entity'
 
 export interface UserFixture extends User {
   password?: string

@@ -7,9 +7,17 @@ import {
   Resolver,
 } from 'typeorm-fixtures-cli/dist'
 import { createConnection, getRepository } from 'typeorm'
-import { User } from '../src/users/user.entity'
+import { config } from 'dotenv'
 
-require('../config')
+import { User } from 'src/users/user.entity'
+
+const files = [`.env.development`, `.env.development.local`]
+
+files.forEach(file => {
+  config({
+    path: join(__dirname, '..', file),
+  })
+})
 
 const loadFixtures = async (fixturesPath: string) => {
   try {
@@ -54,5 +62,5 @@ const loadFixtures = async (fixturesPath: string) => {
 }
 
 if (require.main === module && process.env.INCLUDE_FIXTURES) {
-  loadFixtures('bin/fixtures').catch(console.error)
+  loadFixtures(join(__dirname, '..', 'fixtures')).catch(console.error)
 }

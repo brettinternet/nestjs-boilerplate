@@ -8,9 +8,9 @@ import {
   UseGuards,
 } from '@nestjs/common'
 
-import { CustomRequest } from 'server/auth/auth.controller'
-import { JwtAuthGuard } from 'server/auth/guards/jwt-auth.guard'
-import { CreateUserDto } from './dto/create-user.dto'
+import { CustomRequest } from 'src/auth/auth.controller'
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard'
+import { CreateUserDto } from '@packages/common/build/create-user.dto'
 import { UsersService } from './users.service'
 import { User } from './user.entity'
 

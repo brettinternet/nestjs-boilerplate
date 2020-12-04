@@ -1,7 +1,7 @@
 import { Controller, Request, Post, UseGuards } from '@nestjs/common'
 import { Request as ExpressRequest } from 'express'
 
-import { User } from 'server/users/user.entity'
+import { User } from 'src/users/user.entity'
 import { LocalAuthGuard } from './guards/local-auth.guard'
 import { AuthService } from './auth.service'
 

@@ -4,9 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import * as request from 'supertest'
 
-import { AuthModule } from 'server/auth/auth.module'
-import { appConfig } from 'server/app.config'
-import { UserFixture } from '../bin/fixtures/user-processor'
+import { AuthModule } from 'src/auth/auth.module'
+import { appConfig } from 'src/app.config'
+import { UserFixture } from 'fixtures/user-processor'
 import testUser from './user.json'
 
 describe('AuthController (e2e)', () => {

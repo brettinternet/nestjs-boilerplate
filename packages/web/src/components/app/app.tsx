@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { fetch } from '~/utils/fetch'
+import { fetch } from 'utils/fetch'
 
 export const App = () => {
   const [email, setEmail] = useState('test@example.com')

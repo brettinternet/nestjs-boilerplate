@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@packages/web",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -24,11 +24,13 @@
     "@types/node": "^12.12.48",
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
+    "class-validator": "^0.12.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "server": "^0.0.1",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "@packages/common": "../common"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

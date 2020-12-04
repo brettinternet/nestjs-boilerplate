@@ -1,13 +1,15 @@
 {
   "name": "root",
   "private": true,
+  "main": "build",
   "scripts": {
     "setup": "lerna exec -- npm ci",
     "clean": "lerna run clean",
     "clean:all": "npm run clean && lerna clean",
+    "prestart": "lerna run --scope @packages/common build",
     "start": "run-p start:database start:packages",
     "start:database": "npm run compose-start postgres",
-    "start:packages": "lerna run start",
+    "start:packages": "lerna run start --parallel",
     "build": "lerna run build",
     "test": "lerna run test",
     "compose-start": "ts-node bin/compose-start",
