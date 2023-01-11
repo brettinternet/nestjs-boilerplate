@@ -10,7 +10,7 @@
     "start": "tsc --build --watch tsconfig.build.json"
   },
   "dependencies": {
-    "class-validator": "^0.12.2"
+    "class-validator": "^0.14.0"
   },
   "devDependencies": {
     "typescript": "^3.9.6"
